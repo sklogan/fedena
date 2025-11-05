@@ -81,3 +81,64 @@ Example: `params.require(:user).permit(:name, :email)`
 **A:** It happens when queries run inside loops. Fix using eager loading:  
 ```ruby
 User.includes(:posts)
+
+
+**Q3: What is has_many :through used for?
+A: To set up a relationship through a join model that may contain its own logic.
+
+**Q4: What is a scope?
+**A:** Reusable query logic defined in the model.
+Example: scope :active, -> { where(status: 'active') }
+
+**Q5: Explain polymorphic association.
+**A:** Allows one model to belong to multiple other models.
+Example: Comment can belong to a Post or Photo.
+
+## 4. Controller Layer
+
+**Q1: What does before_action do?
+**A:** Runs a method before certain controller actions, commonly used for authentication or object lookup.
+
+**Q2: How do you return JSON from a controller?
+**A:**
+
+render json: { message: "ok" }
+
+
+**Q3: How do you avoid fat controllers?
+**A:** Move business logic into models, service objects, decorators, or presenters.
+
+5. View / Layout / Templates
+
+**Q1: What is the difference between yield and content_for?
+**A:** yield outputs the main content block, while content_for stores specific content blocks that can be rendered later in the layout.
+
+**Q2: What are helpers used for?
+**A:** To keep view code clean by extracting repeated or complex logic into methods.
+
+**Q3: How do you render a partial?
+**A:**
+
+render "users/user", user: @user
+
+6. Front-End Integration
+
+**Q1: How do you include CSS and JS in Rails?
+**A:** Through the Asset Pipeline, Import Maps, or Webpacker depending on Rails version.
+
+**Q2: How do you perform AJAX in Rails?
+**A:** Using Rails UJS, StimulusJS, or Fetch API returning JSON responses.
+
+7. Git / Team Collaboration
+
+**Q1: What is the difference between git fetch and git pull?
+**A:** fetch only downloads remote changes. pull downloads and merges them into your branch.
+
+**Q2: How do you resolve merge conflicts?
+**A:** Open the conflicted files, manually fix issues, stage the files, and commit.
+
+**Q3: How do you create and push a new feature branch?
+**A:**
+
+git checkout -b feature-branch
+git push origin feature-branch
